@@ -68,9 +68,9 @@ def sendStkPush():
         "Timestamp": timestamp,
         "TransactionType": "CustomerBuyGoodsOnline", #till "CustomerBuyGoodsOnline"
         "Amount": "1",
-        "PartyA": "254768304385",
+        "PartyA": "254721170527",
         "PartyB": shortCode,
-        "PhoneNumber": "254721170527",
+        "PhoneNumber": "254743535400",
         "CallBackURL": callback,
         "AccountReference": "account",
         "TransactionDesc": "test"
