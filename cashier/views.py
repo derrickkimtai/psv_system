@@ -25,9 +25,7 @@ def cashier_signup(request):
     if request.method == 'POST':
         form = CashierSignupForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.role = 'cashier'  # Set role as cashier
-            user.save()
+            user = form.save()  # The form's save method handles role assignment
             messages.success(request, 'Cashier account created successfully')
             return redirect('cashier_login')
         else:

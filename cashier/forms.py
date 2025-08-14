@@ -26,6 +26,10 @@ class CashierSignupForm(UserCreationForm):
         model = CustomUser
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email']
     
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Add any custom initialization if needed
+    
     def save(self, commit=True):
         user = super().save(commit=False)
         user.role = 'cashier'  # Set the role to cashier

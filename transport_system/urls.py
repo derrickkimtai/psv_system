@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from cashier import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -27,3 +29,17 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     
 ]
+
+# Serve static files during development
+if settings.DEBUG:
+    from django.views.static import serve
+    import os
+    
+    urlpatterns += [
+        path('cashier/static/<path:path>', serve, {
+            'document_root': os.path.join(settings.BASE_DIR, 'cashier', 'static'),
+        }),
+        path('manager/static/<path:path>', serve, {
+            'document_root': os.path.join(settings.BASE_DIR, 'manager', 'static'),
+        }),
+    ]
